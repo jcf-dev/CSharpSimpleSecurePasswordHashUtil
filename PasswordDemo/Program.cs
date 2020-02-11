@@ -22,7 +22,8 @@ namespace PasswordDemo
             Console.Write("Enter Password Again to Verify: ");
             textPassword = Console.ReadLine();
             Console.WriteLine(PasswordUtility.PasswordHelper.Verify(textPassword, hashedPassword) ? "SUCCESS: Password Match!" : "ERROR: Password Mismatch!");
-            //Console.ReadKey();
+            Console.WriteLine("Press any key to continue...");
+            Console.ReadKey();
 
             Console.WriteLine("\n====================================");
             Console.WriteLine("Now, we will hash the password with custom Hash, Salt and Iteration. Press any key to continue...");
@@ -46,7 +47,7 @@ namespace PasswordDemo
                 var iterateString = Console.ReadLine();
 
                 errorFree = int.TryParse(hashString, out hash) && int.TryParse(saltString, out salt) && int.TryParse(iterateString, out iteration);
-                if(!errorFree) Console.Write("\nPlease enter a valid value. ");
+                if(!errorFree) Console.WriteLine("\nPlease enter a valid value. ");
             }
 
             PasswordUtility.PasswordHelper.HashSize = hash;
@@ -68,7 +69,6 @@ namespace PasswordDemo
             textPassword = Console.ReadLine();
             Console.WriteLine(PasswordUtility.PasswordHelper.Verify(textPassword, hashedPassword) ? "SUCCESS: Password Match!" : "ERROR: Password Mismatch!");
             Console.WriteLine("Press any key to exit...");
-            
             Console.ReadKey();
         }
     }
